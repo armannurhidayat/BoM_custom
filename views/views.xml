@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    
+    <!-- BOM -->
+    <record model="ir.ui.view" id="view_inherit_bom_form">
+      <field name="name">view_inherit_bom_form.form</field>
+      <field name="model">mrp.bom</field>
+      <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+
+      <field name="arch" type="xml">
+
+        <field name="product_tmpl_id" position="after">
+          <field name="priority" widget="priority"/>
+          <field name="img" widget="image" class="oe_avatar oe_left"/>
+          <field name="video" filename="name" />
+        </field>
+
+        <field name="type" position="after">
+          <field name="date_added" />
+          <field name="desc" />
+        </field>
+
+      </field>
+
+    </record>
+
+
+    <!-- BOM LINE -->
+    <record model="ir.ui.view" id="view_inherit_bom_line_form">
+        <field name="name">view_inherit_bom_line_form.form</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+
+        <field name="arch" type="xml">
+
+          <xpath expr="//field[@name='bom_line_ids']/tree/field[@name='product_qty']" position="after">
+              <field name="desc"/>
+              <field name="harga"/>
+              <field name="img" widget="image" class="oe_avatar"/>
+          </xpath>
+
+        </field>
+
+    </record>
+
+  </data>
+</odoo>
